@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quran Daily</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: sans-serif;
+      background-color: #f7f7f7;
+      text-align: center;
+    }
+    .message {
+      background-color: #fff3cd;
+      border: 1px solid #ffeeba;
+      color: #856404;
+      padding: 1.5rem;
+      border-radius: 8px;
+      max-width: 500px;
+      margin: 5rem auto;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="message" id="message">
+    Redirecting to the App Store...
+  </div>
+
+  <script>
+    const userAgent = navigator.userAgent;
+    const isTikTokBrowser = userAgent.includes("musical_ly") || userAgent.includes("BytedanceWebview");
+
+    const messageEl = document.getElementById("message");
+
+    if (isTikTokBrowser) {
+      messageEl.textContent = "Tap the 3 dots at the top right and choose 'Open in browser' to download Quran Daily.";
+    } else {
+      // Redirect to App Store
+      window.location.href = "https://apps.apple.com/app/id6747687797";
+    }
+  </script>
+</body>
+</html>
