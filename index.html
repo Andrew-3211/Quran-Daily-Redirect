@@ -1,46 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quran Daily</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 2rem;
-      font-family: sans-serif;
-      background-color: #f7f7f7;
-      text-align: center;
-    }
-    .message {
-      background-color: #fff3cd;
-      border: 1px solid #ffeeba;
-      color: #856404;
-      padding: 1.5rem;
-      border-radius: 8px;
-      max-width: 500px;
-      margin: 5rem auto;
-      font-size: 1.2rem;
-    }
-  </style>
-</head>
-<body>
-  <div class="message" id="message">
-    Redirecting to the App Store...
-  </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quran Daily Redirect</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(to bottom right, #2b8287, #0f3d4c);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        color: white;
+        text-align: center;
+        padding: 20px;
+      }
 
-  <script>
-    const userAgent = navigator.userAgent;
-    const isTikTokBrowser = userAgent.includes("musical_ly") || userAgent.includes("BytedanceWebview");
+      .logo {
+        max-width: 150px;
+        margin-bottom: 30px;
+      }
 
-    const messageEl = document.getElementById("message");
+      .message {
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 18px 22px;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        backdrop-filter: blur(4px);
+      }
 
-    if (isTikTokBrowser) {
-      messageEl.textContent = "Tap the 3 dots at the top right and choose 'Open in browser' to download Quran Daily.";
-    } else {
-      // Redirect to App Store
-      window.location.href = "https://apps.apple.com/app/id6747687797";
-    }
-  </script>
-</body>
+      @media (max-width: 480px) {
+        .message {
+          font-size: 1rem;
+          padding: 16px;
+        }
+      }
+    </style>
+    <script>
+      // Detect TikTok browser
+      const ua = navigator.userAgent || '';
+      const isTikTok = ua.includes('musical_ly_') || ua.includes('BytedanceWebview');
+
+      window.onload = () => {
+        if (!isTikTok) {
+          window.location.href = "https://apps.apple.com/app/id6747687797"; // <-- App Store redirect
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <img src="logo.png" alt="Quran Daily Logo" class="logo" />
+    <div class="message">
+      Tap the 3 dots at the top right and choose<br />
+      <strong>'Open in browser'</strong> to download Quran Daily.
+    </div>
+  </body>
 </html>
