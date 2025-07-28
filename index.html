@@ -59,5 +59,17 @@
       Tap the 3 dots at the top right and choose <strong>'Open in browser'</strong> to download <strong>Quran Daily</strong>.
     </div>
   </div>
+
+  <script>
+    const APP_STORE_URL = "https://apps.apple.com/us/app/quran-daily-reflect-grow/id6451242424";
+
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const isTiktokBrowser = /musical_ly_|BytedanceWebview/.test(userAgent);
+
+    if (!isTiktokBrowser) {
+      window.location.href = APP_STORE_URL;
+    }
+  </script>
 </body>
 </html>
+
